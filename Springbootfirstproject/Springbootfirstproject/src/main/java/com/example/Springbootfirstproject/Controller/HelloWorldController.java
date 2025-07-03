@@ -1,5 +1,6 @@
 package com.example.Springbootfirstproject.Controller;
 import com.example.Springbootfirstproject.Models.Employee;
+import com.example.Springbootfirstproject.Models.Student;
 import com.example.Springbootfirstproject.Services.HelloWorldService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -49,5 +50,10 @@ public class HelloWorldController {
     public ArrayList<Employee> emp()
     {
         return sws.getEmp();
+    }
+    @GetMapping("/Student")
+    public ArrayList<Student>getStudent()
+    {
+        return sws.getAllStudent();
     }
 }

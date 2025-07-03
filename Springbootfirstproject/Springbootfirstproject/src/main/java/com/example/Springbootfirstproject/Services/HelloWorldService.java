@@ -1,6 +1,7 @@
 package com.example.Springbootfirstproject.Services;
 
 import com.example.Springbootfirstproject.Models.Employee;
+import com.example.Springbootfirstproject.Models.Student;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import java.util.Arrays;
 @Service
 public class HelloWorldService {
 
-
+//    Employee ----------------------------------------------------------------------------->
     ArrayList<Employee> l=new ArrayList<>(Arrays.asList
             (new Employee(1,"SUMO","doctor","500"),new Employee(2,"abc","def","")));
 
@@ -21,6 +22,16 @@ public class HelloWorldService {
     {
         l.add(emp);
     }
+//    Student----------------------------------------->
+    ArrayList<Student> st=new ArrayList<>(Arrays.asList
+        (new Student(1,"Sharan","ECE"),new Student(2,"Danista","CSE")));
+
+    public ArrayList<Student> getAllStudent()
+    {
+        return st;
+    }
+
+//    Hello example-------------------------------------------------------->
     public String  hello() {
         return "hello from GetMapping";
     }
