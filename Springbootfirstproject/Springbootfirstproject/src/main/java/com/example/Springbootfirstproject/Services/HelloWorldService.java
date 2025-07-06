@@ -3,9 +3,11 @@ package com.example.Springbootfirstproject.Services;
 import com.example.Springbootfirstproject.Models.Employee;
 import com.example.Springbootfirstproject.Models.Student;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 @Service
 public class HelloWorldService {
@@ -22,6 +24,22 @@ public class HelloWorldService {
     {
         l.add(emp);
     }
+
+    public void ChnageDetails(List<Employee> emp) {
+        for(int i=0;i<l.size();i++)
+        {
+            if(l.get(i).getEmpid()== emp.get(0).getEmpid())
+            {
+                l.set(i,emp.get(1));
+            }
+        }
+    }
+    public void DeleteEmployee(Employee emp)
+    {
+
+        l.remove(emp);
+    }
+
 //    Student----------------------------------------->
     ArrayList<Student> st=new ArrayList<>(Arrays.asList
         (new Student(1,"Sharan","ECE"),new Student(2,"Danista","CSE")));
@@ -47,4 +65,6 @@ public class HelloWorldService {
     public String Deletemapping() {
         return "Hello From DeleteMapping";
     }
+
+
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 //@Controller
 //@ResponseBody
@@ -55,5 +56,17 @@ public class HelloWorldController {
     public ArrayList<Student>getStudent()
     {
         return sws.getAllStudent();
+    }
+
+    @PutMapping("/")
+    public void ChangeEmployee(@RequestBody List< Employee> emp)
+    {
+        sws.ChnageDetails(emp);
+    }
+
+    @DeleteMapping("/")
+    public void DeleteEmployee(@RequestBody  Employee emp)
+    {
+        sws.DeleteEmployee(emp);
     }
 }
