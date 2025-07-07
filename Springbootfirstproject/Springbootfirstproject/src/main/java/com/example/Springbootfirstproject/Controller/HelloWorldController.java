@@ -8,65 +8,98 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
+
 //@Controller
 //@ResponseBody
 @RestController
+@RequestMapping("/student")
 public class HelloWorldController {
 
     @Autowired
     private HelloWorldService sws;
 
 
-    @GetMapping("/hello")
-    public String hello()
+//    @GetMapping("/hello")
+//    public String hello()
+//    {
+//        return sws.hello();
+//    }
+//
+//    @PostMapping("/hello")
+//    public String postHello()
+//    {
+//        return sws.postHello();
+//    }
+//
+//    @PutMapping("/hello")
+//    public String PutMapping()
+//    {
+//        return sws.PutMapping();
+//    }
+//
+//    @DeleteMapping("/hello")
+//    public String DeleteMapping()
+//    {
+//        return  sws.Deletemapping();
+//    }
+//
+//    @PostMapping("/")
+//    public void SetArrayListvalues(@RequestBody Employee emp)
+//    {
+//        sws.Setvalues(emp);
+//    }
+//
+//    @GetMapping("/")
+//    public ArrayList<Employee> emp()
+//    {
+//        return sws.getEmp();
+//    }
+
+    //
+//    @PutMapping("/")
+//    public void ChangeEmployee(@RequestBody List< Employee> emp)
+//    {
+//        sws.ChnageDetails(emp);
+//    }
+//
+//    @DeleteMapping("/")
+//    public void DeleteEmployee(@RequestBody  Employee emp)
+//    {
+//        sws.DeleteEmployee(emp);
+//    }
+
+
+    @GetMapping
+    public List<Student> getAllStudents()
     {
-        return sws.hello();
+        return sws.getAllStudents();
     }
 
-    @PostMapping("/hello")
-    public String postHello()
-    {
-        return sws.postHello();
+    @GetMapping("/{id}")
+    public Student getStudentId(@PathVariable int id) {
+        System.out.println(id);
+        return sws.getStudentId(id);
     }
 
-    @PutMapping("/hello")
-    public String PutMapping()
-    {
-        return sws.PutMapping();
+    @PostMapping
+    public String addStudent(@RequestBody Student student) {
+        if(sws.addStudent(student))
+        {
+            return "Success";
+        }
+        return "Not Success";
     }
 
-    @DeleteMapping("/hello")
-    public String DeleteMapping()
-    {
-        return  sws.Deletemapping();
+    @PutMapping("/{id}")
+    public String updateStudent(@RequestBody Student student,@PathVariable int id) {
+            if(sws.UpdateStudent(id,student))
+            {
+                return "Success";
+            }
+            return "Not Success";
     }
 
-    @PostMapping("/")
-    public void SetArrayListvalues(@RequestBody Employee emp)
-    {
-        sws.Setvalues(emp);
-    }
 
-    @GetMapping("/")
-    public ArrayList<Employee> emp()
-    {
-        return sws.getEmp();
-    }
-    @GetMapping("/Student")
-    public ArrayList<Student>getStudent()
-    {
-        return sws.getAllStudent();
-    }
 
-    @PutMapping("/")
-    public void ChangeEmployee(@RequestBody List< Employee> emp)
-    {
-        sws.ChnageDetails(emp);
-    }
-
-    @DeleteMapping("/")
-    public void DeleteEmployee(@RequestBody  Employee emp)
-    {
-        sws.DeleteEmployee(emp);
-    }
 }

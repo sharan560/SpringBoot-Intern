@@ -1,15 +1,21 @@
 package com.example.Springbootfirstproject.Models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
 public class Student {
+    @Id
     private int rollno;
     private String name;
     private String dept;
 
-    public Student(int rollno, String name, String dept) {
-        this.rollno = rollno;
-        this.name = name;
-        this.dept = dept;
-    }
 
     public int getRollno() {
         return rollno;

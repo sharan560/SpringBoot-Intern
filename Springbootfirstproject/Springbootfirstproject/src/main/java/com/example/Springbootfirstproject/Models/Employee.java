@@ -1,18 +1,16 @@
 package com.example.Springbootfirstproject.Models;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@AllArgsConstructor
+@NoArgsConstructor
 public class Employee {
     private int empid;
     private String ename;
     private String job;
     private String salary;
 
-
-    public Employee(int empid, String ename, String job, String salary) {
-        this.empid = empid;
-        this.ename = ename;
-        this.job = job;
-        this.salary = salary;
-    }
 
     public int getEmpid() {
         return empid;
