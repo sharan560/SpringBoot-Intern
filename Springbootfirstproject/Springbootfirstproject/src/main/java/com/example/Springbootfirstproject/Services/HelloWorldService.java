@@ -93,4 +93,14 @@ public class HelloWorldService {
         studentRepo.save(temp);
         return true;
     }
+
+    public boolean deleteStudent(Student student) {
+        studentRepo.delete(student);
+        return true;
+    }
+
+
+    public List<Student> getStudentsByName(String name) {
+        return studentRepo.findByName(name);
+    }
 }

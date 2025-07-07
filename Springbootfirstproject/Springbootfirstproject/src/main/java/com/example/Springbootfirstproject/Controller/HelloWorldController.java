@@ -99,6 +99,21 @@ public class HelloWorldController {
             }
             return "Not Success";
     }
+    @DeleteMapping
+    public String deleteStudent(@RequestBody Student student) {
+        if(sws.deleteStudent(student))
+        {
+            return "Success";
+        }
+        return "Not Success";
+
+    }
+
+    @GetMapping("/name")
+    public List<Student> getStudentsByname(@RequestParam String name){
+        return sws.getStudentsByName(name);
+    }
+
 
 
 
