@@ -14,7 +14,16 @@ public class UserDetails {
     private String ename;
     private String email;
     private String password;
-    private String bob;
+    private String dob;
+    private String role;
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 
     public UserDetails() {
 
@@ -28,12 +37,13 @@ public class UserDetails {
         this.empid = empid;
     }
 
-    public UserDetails(int empid, String ename, String email, String password, String bob) {
+    public UserDetails(int empid, String ename, String email, String password, String dob, String role) {
         this.empid = empid;
         this.ename = ename;
         this.email = email;
         this.password = password;
-        this.bob = bob;
+        this.dob = dob;
+        this.role = role;
     }
 
     public String getEname() {
@@ -61,10 +71,10 @@ public class UserDetails {
     }
 
     public String getBob() {
-        return bob;
+        return dob;
     }
 
     public void setBob(String bob) {
-        this.bob = bob;
+        this.dob = bob;
     }
 }
