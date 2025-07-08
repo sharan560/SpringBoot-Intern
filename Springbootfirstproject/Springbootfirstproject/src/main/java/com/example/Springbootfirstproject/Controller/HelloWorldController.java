@@ -20,6 +20,7 @@ public class HelloWorldController {
     private HelloWorldService sws;
 
 
+
 //    @GetMapping("/hello")
 //    public String hello()
 //    {
@@ -113,8 +114,5 @@ public class HelloWorldController {
     public List<Student> getStudentsByname(@RequestParam String name){
         return sws.getStudentsByName(name);
     }
-
-
-
 
 }
