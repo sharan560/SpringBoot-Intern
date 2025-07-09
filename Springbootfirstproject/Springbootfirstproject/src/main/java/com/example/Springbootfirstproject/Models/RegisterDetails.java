@@ -1,33 +1,29 @@
 package com.example.Springbootfirstproject.Models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
+import java.util.Date;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 @Entity
-public class UserDetails {
+public class RegisterDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int empid;
+
+    @Column(nullable = false)
     private String ename;
     private String email;
     private String password;
-    private String dob;
+    private Date dob;
     private String role;
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public UserDetails() {
-
-    }
 
     public int getEmpid() {
         return empid;
@@ -35,15 +31,6 @@ public class UserDetails {
 
     public void setEmpid(int empid) {
         this.empid = empid;
-    }
-
-    public UserDetails(int empid, String ename, String email, String password, String dob, String role) {
-        this.empid = empid;
-        this.ename = ename;
-        this.email = email;
-        this.password = password;
-        this.dob = dob;
-        this.role = role;
     }
 
     public String getEname() {
@@ -70,11 +57,22 @@ public class UserDetails {
         this.password = password;
     }
 
-    public String getBob() {
+    public Date getDob() {
         return dob;
     }
 
-    public void setBob(String bob) {
-        this.dob = bob;
+    public void setDob(Date dob) {
+        this.dob = dob;
     }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+
+
 }

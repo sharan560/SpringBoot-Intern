@@ -3,6 +3,7 @@ import com.example.Springbootfirstproject.Models.Employee;
 import com.example.Springbootfirstproject.Models.Student;
 import com.example.Springbootfirstproject.Services.HelloWorldService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -70,19 +71,21 @@ public class HelloWorldController {
 //        sws.DeleteEmployee(emp);
 //    }
 
-
+    @PreAuthorize("hasAnyRole('ADMIN','USER')")
     @GetMapping
     public List<Student> getAllStudents()
     {
         return sws.getAllStudents();
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN','USER')")
     @GetMapping("/{id}")
     public Student getStudentId(@PathVariable int id) {
         System.out.println(id);
         return sws.getStudentId(id);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     public String addStudent(@RequestBody Student student) {
         if(sws.addStudent(student))
@@ -92,6 +95,7 @@ public class HelloWorldController {
         return "Not Success";
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}")
     public String updateStudent(@RequestBody Student student,@PathVariable int id) {
             if(sws.UpdateStudent(id,student))
@@ -100,6 +104,8 @@ public class HelloWorldController {
             }
             return "Not Success";
     }
+
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping
     public String deleteStudent(@RequestBody Student student) {
         if(sws.deleteStudent(student))
@@ -109,7 +115,7 @@ public class HelloWorldController {
         return "Not Success";
 
     }
-
+    @PreAuthorize("hasAnyRole('ADMIN','USER')")
     @GetMapping("/name")
     public List<Student> getStudentsByname(@RequestParam String name){
         return sws.getStudentsByName(name);
