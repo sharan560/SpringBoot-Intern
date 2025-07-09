@@ -62,4 +62,15 @@ public class RegisterService {
         }
         return false;
     }
+
+    public List<RegisterDetails> getAllUserOnly() {
+        List<RegisterDetails> rs=userRepo.findAll();
+        List<RegisterDetails> result = List.of();
+        for(int i=0;i<rs.size();i++) {
+            if(rs.get(i).getRole().equals("user")) {
+                result=rs;
+            }
+        }
+        return result;
+    }
 }

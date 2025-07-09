@@ -53,6 +53,13 @@ public class RegisterController {
             return "Fail";
         }
     }
+    @GetMapping("/useronly")
+            public List <RegisterDetails> getAllUser(){
+        return uds.getAllUserOnly();
+    }
+    {
+
+    }
     @PutMapping("{id}")
     public String updateUser(@PathVariable int id, @RequestBody RegisterDetails registerDetails) {
         if(uds.update(id, registerDetails))
