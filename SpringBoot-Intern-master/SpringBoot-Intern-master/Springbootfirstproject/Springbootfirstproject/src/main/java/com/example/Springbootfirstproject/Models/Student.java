@@ -1,46 +1,25 @@
 package com.example.Springbootfirstproject.Models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
+
+
+import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@Data
+
 public class Student {
-    @Id
+
     private int rollno;
     private String name;
     private String dept;
+    private String email;
+    private String password;
+    private String gender;
+    private String Courses;
 
-
-    public int getRollno() {
-        return rollno;
-    }
-
-    public void setRollno(int rollno) {
-        this.rollno = rollno;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDept() {
-        return dept;
-    }
-
-    public void setDept(String dept) {
-        this.dept = dept;
-    }
-
-
-    
 }
