@@ -2,24 +2,12 @@ package com.example.TodoApp.Model;
 
 public class Todo {
 
-    private int taskid;
     private String task;
     private String TaskStatus;
 
-    public Todo(int taskid,String task, String taskStatus) {
-        this.taskid = taskid;
+    public Todo(String task, String taskStatus) {
         this.task = task;
-        this.TaskStatus = taskStatus;
-
-
-    }
-
-    public int getTaskid() {
-        return taskid;
-    }
-
-    public void setTaskid(int taskid) {
-        this.taskid = taskid;
+        TaskStatus = taskStatus;
     }
 
     public String getTask() {
@@ -37,5 +25,4 @@ public class Todo {
     public void setTaskStatus(String taskStatus) {
         TaskStatus = taskStatus;
     }
-
 }

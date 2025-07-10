@@ -23,6 +23,7 @@ public class SpringConfiguration {
         return new BCryptPasswordEncoder();
     }
 
+
     @Bean
     public SecurityFilterChain  securityFilterChain(HttpSecurity http) throws Exception {
 //        Disabled Form In the Shown In the Web Browser after doing it a popUP is shown
