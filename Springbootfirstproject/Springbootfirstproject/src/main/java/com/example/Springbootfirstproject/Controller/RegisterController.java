@@ -16,7 +16,6 @@ public class RegisterController {
     private RegisterService uds;
 
     @GetMapping
-    @PreAuthorize("hasRole('ADMIN')")
     public List<RegisterDetails> getUserDetails() {
         return uds.getAllUser();
     }

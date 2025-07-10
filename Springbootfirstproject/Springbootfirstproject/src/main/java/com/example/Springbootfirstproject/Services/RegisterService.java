@@ -7,6 +7,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -65,10 +66,10 @@ public class RegisterService {
 
     public List<RegisterDetails> getAllUserOnly() {
         List<RegisterDetails> rs=userRepo.findAll();
-        List<RegisterDetails> result = List.of();
+        List<RegisterDetails> result = new ArrayList<>(List.of());
         for(int i=0;i<rs.size();i++) {
-            if(rs.get(i).getRole().equals("user")) {
-                result=rs;
+            if(rs.get(i).getRole().equals("USER")) {
+                result.add(rs.get(i));
             }
         }
         return result;
