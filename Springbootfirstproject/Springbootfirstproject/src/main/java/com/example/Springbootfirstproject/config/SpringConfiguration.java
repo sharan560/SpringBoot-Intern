@@ -43,16 +43,16 @@ public class SpringConfiguration {
     UserDetailsService userDetails()
     {
         UserDetails admin= User.builder().
-                        username("admin").
-                        password(passwordEncoder().encode("admin")).
-                        roles("ADMIN").
-                        build();
+                username("admin").
+                password(passwordEncoder().encode("admin")).
+                roles("ADMIN").
+                build();
         UserDetails Sharan=User.builder()
                 .username("Sharan")
                 .password(passwordEncoder().encode("Sharan-06"))
                 .roles("USER")
                 .build();
-         return new InMemoryUserDetailsManager(admin,Sharan);
+        return new InMemoryUserDetailsManager(admin,Sharan);
     }
 
 

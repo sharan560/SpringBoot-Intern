@@ -1,21 +1,17 @@
 package com.example.Springbootfirstproject.Controller;
-import com.example.Springbootfirstproject.Models.Employee;
 import com.example.Springbootfirstproject.Models.Student;
 import com.example.Springbootfirstproject.Services.HelloWorldService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
 //@Controller
 //@ResponseBody
 @RestController
 @RequestMapping("/student")
-public class HelloWorldController {
+public class EmployeeController {
 
     @Autowired
     private HelloWorldService sws;
@@ -85,6 +81,7 @@ public class HelloWorldController {
         return sws.getStudentId(id);
     }
 
+
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     public String addStudent(@RequestBody Student student) {
@@ -115,6 +112,7 @@ public class HelloWorldController {
         return "Not Success";
 
     }
+
     @PreAuthorize("hasAnyRole('ADMIN','USER')")
     @GetMapping("/name")
     public List<Student> getStudentsByname(@RequestParam String name){
