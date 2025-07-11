@@ -20,7 +20,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public String Login(@RequestBody RegisterDetails login){
-        return authService.authenticate(login);
+        return authService.authenticateAndGenerateToken(login.getName(), login.getPassword());
     }
 
 }
