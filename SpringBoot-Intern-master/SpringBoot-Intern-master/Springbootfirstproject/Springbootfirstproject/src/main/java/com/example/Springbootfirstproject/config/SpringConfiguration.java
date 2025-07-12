@@ -25,7 +25,7 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SpringConfiguration {
 
     @Autowired
-    private MyUserDetailService myUserDetailService;
+    private UserDetailsService userDetailsService;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -35,10 +35,11 @@ public class SpringConfiguration {
     @Bean
     public AuthenticationProvider authProvider() {
         DaoAuthenticationProvider provider=new DaoAuthenticationProvider();
-        provider.setUserDetailsService(myUserDetailService);
+        provider.setUserDetailsService(userDetailsService);
         provider.setPasswordEncoder(new BCryptPasswordEncoder(12));
         return provider;
     }
+
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
