@@ -1,0 +1,12 @@
+Csrf Attack------------------->
+
+Csrf attack can be described as like that we are being logged in inside a website and logging into someother website 
+like a malicious website and this malicious website acsses the data and details of the other website then it results 
+in a Csrf Attack 
+
+
+when to disable it :
+when our website does  uses JWT or OAuth2 because these usues a token which is needed to access the data so it make it to be safe 
+
+when to enable it:
+when using simple form or webapp based that is like simple html forms or simple application web which does uses default authentication no modern protections like JWT or OAuth2
