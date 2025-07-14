@@ -1,3 +1,24 @@
+Stateful and Stateless API
+
+Stateful api store information or details about previous things .the server store the data
+of the clinet or the user ..it is easier to maintain but consumes more memeory
+
+stateless does not retain previous informations every query send from the client requires all the data that is needed for processing it is simple and easier for working with but it increases the size of the request because all the details mut need to send send that is need for processing   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Csrf Attack------------------->
 
 Csrf attack can be described as like that we are being logged in inside a website and logging into someother website 
