@@ -42,5 +42,29 @@ public class EmployeeControllerTest {
             assertEquals(2,result.size());
         }
 
+        @Test
+        void testEmpbyid(){
+            RegisterDetails emp1=new RegisterDetails();
+            emp1.setEmpId(1);
+            when(employeeService.getEmployeeById(1)).thenReturn(emp1);
+            RegisterDetails result = employeeController.getEmployeeById(1);
+            assertEquals(1,result.getEmpId());
+        }
+
+        @Test
+        void testput(){
+        when(employeeService.updateEmployee(1)).thenReturn("Employee upadtedone");
+
+        String result = employeeController.putMethod(1);
+        assertEquals("Employee upadtedone", result);
+        }
+
+        @Test
+        void delete(){
+            when(employeeService.deleteEmployeeById(1)).thenReturn("Employee deletedone");
+            String result = employeeController.deleteMethod(1);
+            assertEquals("Employee deletedone", result);
+        }
+
 
 }
