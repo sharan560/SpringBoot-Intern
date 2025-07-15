@@ -25,14 +25,14 @@ public class EmployeeController {
 
 
     @GetMapping("/employee")
-    @PreAuthorize("hasAnyRole('ADMIN','USER')")
+
     public List<RegisterDetails> getMethod(){
         return employeeService.getMethod();
     }
 
 
     @GetMapping("/employee/{empId}")
-    @PreAuthorize("hasAnyRole('ADMIN','USER')")
+
     public RegisterDetails getEmployeeById(@PathVariable int empId){
         System.out.println();
         return employeeService.getEmployeeById(empId);
