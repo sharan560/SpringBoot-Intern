@@ -16,11 +16,13 @@ public class AuthController {
 
     @PostMapping("/register")
     public String addNewUser(@RequestBody UserDetailsDto register){
+        System.out.println(register);
         return authService.addNewEmployee(register);
     }
 
     @PostMapping("/login")
     public String Login(@RequestBody RegisterDetails login){
+        System.out.println(login.getName()+login.getPassword());
         return authService.authenticateAndGenerateToken(login.getName(), login.getPassword());
     }
 
