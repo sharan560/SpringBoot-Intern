@@ -9,6 +9,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin
@@ -37,7 +38,12 @@ public class EmployeeController {
         System.out.println();
         return employeeService.getEmployeeById(empId);
     }
-
+    
+    @GetMapping("/employees/name/{name}")
+    public Optional<RegisterDetails> getEmployeeByName(@PathVariable String name){
+        System.out.println(name);
+        return employeeService.getEmployyeByName(name);
+    }
 
 
 //    @PreAuthorize("hasAnyRole('ADMIN','USER')")
@@ -49,7 +55,7 @@ public class EmployeeController {
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/employee")
     public String postMethod(@RequestBody RegisterDetails employee){
-//        Employee employee = new Employee(5,"Sivagami", "Business");
+
         return employeeService.addEmployee(employee);
     }
 

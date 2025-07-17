@@ -1,5 +1,6 @@
 package com.example.springbootfirst.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -40,6 +41,7 @@ public class RegisterDetails {
   private Set<Roles> roles;
 
   @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+  @JsonIgnore
   private Set<Tasks> tasks;
 
 }
